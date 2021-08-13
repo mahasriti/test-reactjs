@@ -71,4 +71,5 @@
 .commentaire {
   /* margin-top: 40px; */
   text-align: left;
+  min-width: 350;
 }

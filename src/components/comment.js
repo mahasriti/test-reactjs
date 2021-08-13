@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     maxWidth: 300,
-    minWidth: 200,
     margin: `${theme.spacing(1)}px auto`,
     padding: theme.spacing(2),
   },
@@ -38,43 +37,41 @@ function Comment({ comment, handleRemoveItem }) {
   const classes = useStyles();
   return (
     <div>
-      <div>
-        <div className={classes.root}>
-          <Paper className={classes.paper}>
-            <Grid container wrap="nowrap" spacing={2}>
-              <Grid>
-                <Avatar src="/broken-image.jpg" />
-              </Grid>
-              <Grid item xs>
-                <Typography>
-                  <div className="author text-muted">{data.author}</div>
-                  <div className="content">
-                    <EditText
-                      value={comment.content}
-                      name="content"
-                      onClick={handleChange}
-                    />
-                  </div>
-                  <div className="content">
-                    {comment.creationDate !== undefined
-                      ? comment.creationDate.substring(0, 10)
-                      : null}
-                  </div>
-                </Typography>
-              </Grid>
-              <Grid>
-                <IconButton>
-                  <EditIcon style={{ width: "20px" }} />
-                  <DeleteIcon
-                    onClick={() => handleRemoveItem(comment.author)}
-                    aria-label="delete"
-                    style={{ width: "20px" }}
-                  />
-                </IconButton>
-              </Grid>
+      <div className={classes.root}>
+        <Paper className={classes.paper}>
+          <Grid container wrap="nowrap" spacing={2}>
+            <Grid>
+              <Avatar src="/broken-image.jpg" />
             </Grid>
-          </Paper>
-        </div>
+            <Grid item xs>
+              <Typography>
+                <div className="author text-muted">{data.author}</div>
+                <div className="content">
+                  <EditText
+                    value={comment.content}
+                    name="content"
+                    onClick={handleChange}
+                  />
+                </div>
+                <div className="content">
+                  {comment.creationDate !== undefined
+                    ? comment.creationDate.substring(0, 10)
+                    : null}
+                </div>
+              </Typography>
+            </Grid>
+            <Grid>
+              <IconButton>
+                <EditIcon style={{ width: "20px" }} />
+                <DeleteIcon
+                  onClick={() => handleRemoveItem(comment.author)}
+                  aria-label="delete"
+                  style={{ width: "20px" }}
+                />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </Paper>
       </div>
     </div>
   );
